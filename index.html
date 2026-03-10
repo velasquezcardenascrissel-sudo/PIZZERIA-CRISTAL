@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Cristal | 25 Años de Tradición</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-dark: #3E0703;
+            --color-primary: #660Bs05;
+            --color-secondary: #8C1007;
+            --color-cream: #FFF0C4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-cream);
+            color: var(--color-dark);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-primary { background-color: var(--color-primary); }
+        .bg-secondary { background-color: var(--color-secondary); }
+        .bg-dark { background-color: var(--color-dark); }
+        .text-cream { color: var(--color-cream); }
+        .text-primary { color: var(--color-primary); }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--color-secondary);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(62, 7, 3, 0.7), rgba(62, 7, 3, 0.7)), 
+                        url('imagenes/PORTADA\ CRI.jpg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card-pizza {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-pizza:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 30px rgba(62, 7, 3, 0.2);
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-dark/95 backdrop-blur-sm text-cream border-b border-primary/20">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-tighter">
+            <span class="text-secondary">PIZZA CRISTAL</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-sm font-semibold uppercase tracking-widest">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#productos" class="nav-link">Menú</a>
+                <a href="#resenas" class="nav-link">Reseñas</a>
+                <a href="#contacto" class="nav-link">Ubicación</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark p-6 space-y-4 border-t border-primary/20">
+            <a href="#inicio" class="block nav-link">Inicio</a>
+            <a href="#productos" class="block nav-link">Menú</a>
+            <a href="#resenas" class="block nav-link">Reseñas</a>
+            <a href="#contacto" class="block nav-link">Ubicación</a>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio -->
+    <header id="inicio" class="hero-section h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl animate-fade">
+            <h2 class="text-secondary font-bold tracking-[0.4em] uppercase text-sm mb-4">Un legado de sabor</h2>
+            <h1 class="text-6xl md:text-8xl mb-6">25 Años Haciendo Historia</h1>
+            <p class="text-xl md:text-2xl font-light italic text-cream/90 mb-10 max-w-2xl mx-auto">
+                "La receta de Cristal: ingredientes frescos, fuego lento y el cariño de nuestra familia en tu mesa."
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#productos" class="bg-secondary hover:bg-primary px-10 py-4 rounded-full font-bold transition-all shadow-lg transform hover:scale-105">
+                    Ver el Menú
+                </a>
+                <a href="#contacto" class="border border-cream/50 hover:bg-cream hover:text-dark px-10 py-4 rounded-full font-bold transition-all">
+                    Hacer Pedido
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Elige tu Pizza -->
+    <section id="productos" class="section-padding container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl text-primary mb-4">Nuestras Especialidades</h2>
+            <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+            <p class="text-gray-600">Pizzas artesanales con masa de fermentación lenta</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Producto 1 -->
+            <div class="card-pizza bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?q=80&w=1925&auto=format&fit=crop" alt="Pizza Margarita" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl mb-2">Clásica Cristal</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">Salsa de tomate artesanal, mozzarella fresca, albahaca orgánica y aceite de oliva virgen.</p>
+                    <div class="flex justify-between items-center border-t pt-6">
+                        <span class="text-2xl font-bold text-primary">S/12.50</span>
+                        <button class="bg-dark text-cream px-6 py-2 rounded-xl text-sm font-bold uppercase hover:bg-secondary transition">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="card-pizza bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=2000&auto=format&fit=crop" alt="Pizza Pepperoni" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl mb-2">Pepperoni Supremo</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">El favorito de la casa. Pepperoni curado al estilo italiano con una mezcla secreta de quesos.</p>
+                    <div class="flex justify-between items-center border-t pt-6">
+                        <span class="text-2xl font-bold text-primary">S/15.00</span>
+                        <button class="bg-dark text-cream px-6 py-2 rounded-xl text-sm font-bold uppercase hover:bg-secondary transition">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="card-pizza bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1962&auto=format&fit=crop" alt="Pizza Vegetal" class="w-full h-full object-cover">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl mb-2">Huerta Especial</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">Pimientos asados, champiñones, cebolla morada, aceitunas negras y un toque de orégano.</p>
+                    <div class="flex justify-between items-center border-t pt-6">
+                        <span class="text-2xl font-bold text-primary">S/14.20</span>
+                        <button class="bg-dark text-cream px-6 py-2 rounded-xl text-sm font-bold uppercase hover:bg-secondary transition">Añadir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Reseñas -->
+    <section id="resenas" class="bg-dark py-24 text-cream">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl mb-16 italic">Lo que dicen nuestros comensales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-primary/20 p-10 rounded-2xl border border-primary/30">
+                    <div class="text-yellow-400 mb-4 text-xl">★★★★★</div>
+                    <p class="mb-6 italic">"He venido aquí por 20 años y la calidad de la masa nunca ha cambiado. Es el sabor auténtico de Cristal."</p>
+                    <p class="font-bold">- Fernando García</p>
+                </div>
+                <div class="bg-primary/20 p-10 rounded-2xl border border-primary/30">
+                    <div class="text-yellow-400 mb-4 text-xl">★★★★★</div>
+                    <p class="mb-6 italic">"La mejor pizza de la ciudad. El ambiente es acogedor y te hacen sentir como en casa. ¡Altamente recomendada!"</p>
+                    <p class="font-bold">- Lucía Martínez</p>
+                </div>
+                <div class="bg-primary/20 p-10 rounded-2xl border border-primary/30">
+                    <div class="text-yellow-400 mb-4 text-xl">★★★★★</div>
+                    <p class="mb-6 italic">"Ingredientes de primera. Se nota que las pizzas son hechas con amor y dedicación. No te puedes perder la de Pepperoni."</p>
+                    <p class="font-bold">- Jorge Luis P.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto y Ubicación -->
+    <section id="contacto" class="section-padding container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-16 items-start">
+            <!-- Formulario -->
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-4xl text-primary mb-8">Escríbenos</h2>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Tu Nombre" class="bg-transparent border-b-2 border-primary/30 p-3 focus:border-secondary outline-none transition w-full">
+                        <input type="email" placeholder="Tu Email" class="bg-transparent border-b-2 border-primary/30 p-3 focus:border-secondary outline-none transition w-full">
+                    </div>
+                    <textarea rows="4" placeholder="Tu Mensaje o Pedido" class="bg-transparent border-b-2 border-primary/30 p-3 focus:border-secondary outline-none transition w-full"></textarea>
+                    <button class="bg-secondary text-cream px-10 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-primary transition shadow-xl">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <!-- Información -->
+            <div class="w-full lg:w-1/2 bg-white p-10 rounded-3xl shadow-2xl border border-primary/10">
+                <h2 class="text-3xl mb-8">Visítanos</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="text-secondary">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="font-medium text-lg">Av. de la Tradición #456, Centro Histórico.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-secondary">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                        </div>
+                        <p class="font-medium text-lg">Pedidos: +51 955 291 725 | (555) 765 4321</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-secondary">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="font-medium text-lg">Mar - Dom: 12:00 PM - 11:30 PM</p>
+                    </div>
+                </div>
+                <!-- Mapa Mockup -->
+                <div class="mt-10 h-48 bg-gray-200 rounded-2xl overflow-hidden relative grayscale">
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Mapa">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-white text-dark px-6 py-2 rounded-lg font-bold shadow-lg text-sm uppercase">Ver en Google Maps</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-cream/60 py-12 text-center border-t border-primary/20">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-cream mb-4">PIZZA CRISTAL</h3>
+            <p class="mb-8">Celebrando la tradición y el buen comer desde 1999.</p>
+            <div class="flex justify-center space-x-6 mb-10">
+                <a href="#" class="hover:text-secondary">Facebook</a>
+                <a href="#" class="hover:text-secondary">Instagram</a>
+                <a href="#" class="hover:text-secondary">WhatsApp</a>
+            </div>
+            <p class="text-xs uppercase tracking-widest">&copy; 2024 Pizza Cristal. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú al clickear enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
